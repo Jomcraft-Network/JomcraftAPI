@@ -50,7 +50,7 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
     if ($cache) {
         http_response_code(200);
         echo $cache;
-    } else {
+    } else if ($request == "FORGE" || $request == "FABRIC" || $request == "QUILT") {
         $conn = mysqli_connect("localhost", "JomcraftAPI", ini_get("mysqli.default_pw"), "JomcraftAPI");
         $stmt = mysqli_prepare($conn, "SELECT * FROM Product_Info WHERE NAME = ?;");
         mysqli_stmt_bind_param($stmt, "s", $product_name);
@@ -69,7 +69,6 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
 
                 http_response_code(200);
                 echo $json_response;
-
             } catch (Exception $e) {
                 http_response_code(503);
             }
@@ -87,7 +86,7 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
     if ($cache) {
         http_response_code(200);
         echo $cache;
-    } else {
+    } else if ($request == "FORGE" || $request == "FABRIC" || $request == "QUILT") {
         $conn = mysqli_connect("localhost", "JomcraftAPI", ini_get("mysqli.default_pw"), "JomcraftAPI");
         $stmt = mysqli_prepare($conn, "SELECT * FROM Product_Info WHERE NAME = ?;");
         mysqli_stmt_bind_param($stmt, "s", $product_name);
@@ -106,7 +105,6 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
 
                 http_response_code(200);
                 echo $json_response;
-
             } catch (Exception $e) {
                 http_response_code(503);
             }
