@@ -37,7 +37,7 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
 
         $js = json_encode($arr);
 
-        $memory->set("jomcraftapi.$product_name.versions", $js, time() + 10);
+        $memory->set("jomcraftapi.$product_name.versions", $js, time() + 7200);
 
         http_response_code(200);
 
@@ -63,7 +63,7 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
                 $arr = array('version' => $version->latest);
                 $js = json_encode($arr);
 
-                $memory->set("jomcraftapi.$product_name.latest.$request", $js, time() + 10);
+                $memory->set("jomcraftapi.$product_name.latest.$request", $js, time() + 7200);
 
                 $json_response = $js;
 
@@ -100,7 +100,7 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
                 $arr = array('subject' => 'test', 'status' => $version->latest, 'color' => '8cba05');
                 $js = json_encode($arr);
 
-                $memory->set("jomcraftapi.$product_name.endpoint.$request", $js, time() + 10);
+                $memory->set("jomcraftapi.$product_name.endpoint.$request", $js, time() + 7200);
 
                 $json_response = $js;
 
