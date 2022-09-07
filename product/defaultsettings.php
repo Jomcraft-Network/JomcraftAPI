@@ -96,7 +96,8 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
         if ($product[$request]) {
             try {
                 $version = json_decode($product[$request]);
-                $arr = array('subject' => 'test', 'status' => $version->latest, 'color' => '8cba05');
+                $versionV = ucfirst(strtolower($request));
+                $arr = array('subject' => "Latest $versionV", 'status' => $version->latest, 'color' => '8cba05');
                 $js = json_encode($arr);
 
                 $memory->set("jomcraftapi.$product_name.endpoint.$request", $js, time() + 7200);
