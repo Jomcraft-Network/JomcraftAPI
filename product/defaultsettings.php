@@ -12,6 +12,8 @@ if (isset($_GET['versions']) && $_GET['versions'] == "") {
     latest($_GET['latest'], $productName , $memory);
 } else if (isset($_GET['endpoint']) && $_GET['endpoint'] != "") {
     endpoint($_GET['endpoint'], $productName , $memory);
+} else if (isset($_GET['endpoint2']) && $_GET['endpoint2'] != "") {
+    endpoint2($_GET['endpoint2'], $productName , $memory);
 } else {
     http_response_code(400);
 }
